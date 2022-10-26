@@ -1,0 +1,12 @@
+[
+    {
+        "username":"sample1@163.com",
+        "password":"12345678",
+        "sckey":"SCT*****"
+    },
+    {
+        "username":"sample2@qq.com",
+        "password":"1234567890",
+        "sckey":"SCT*****"
+    }
+]
