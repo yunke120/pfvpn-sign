@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     url = 'https://purefast.net/auth/login'
     for user in users:
-        print(user['username'])
+        # print(user['username'])
         browser.get(url)
         time.sleep(5)
         try:
@@ -49,10 +49,11 @@ if __name__ == '__main__':
             btn_sign = browser.find_element(By.XPATH, '//div[@id="checkin-div"]/a/div/h1')
             state = btn_sign.text
             if state == "今日已签到":
-                result = browser.find_element(By.XPATH, '//div[@id="app"]/div/div[3]/section/div[3]/div[1]/div/div[3]/div/nav/ol/li')
+                pass
+                #result = browser.find_element(By.XPATH, '//div[@id="app"]/div/div[3]/section/div[3]/div[1]/div/div[3]/div/nav/ol/li')
                 
-                msg = result.text
-                send.server(user['sckey'], user['username'], msg)
+                #msg = result.text
+                #send.server(user['sckey'], user['username'], msg)
             else:
                 btn_sign.click()
                 time.sleep(5)

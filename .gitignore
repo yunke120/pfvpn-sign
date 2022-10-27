@@ -1,2 +1,2 @@
-figures/
+__pycache__/
 user.json

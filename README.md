@@ -14,11 +14,11 @@ PFvpn提供了全球网络中继服务，免费版需要每日签到以获取会
 
 通过注册[链接](https://purefast.net/auth/register?code=OeJl)进行注册，点击以下按钮复制订阅链接
 
-![image-20221026182104326](figures/image-20221026182104326.png)
+<img src="figures/image-20221026182104326.png" alt="image-20221026182104326" style="zoom: 50%;" />
 
 下载软件[Winxray](https://github.com/TheMRLL/WinXray.git)，具体使用方式参见其说明文件，将订阅链接拷贝进去更新订阅即可
 
-![image-20221026182500357](figures/image-20221026182500357.png)
+<img src="figures/image-20221026182500357.png" alt="image-20221026182500357" style="zoom:50%;" />
 
 ### 签到脚本使用方式
 
@@ -36,7 +36,7 @@ PFvpn提供了全球网络中继服务，免费版需要每日签到以获取会
 $git  clone https://github.com/yunke120/pfvpn-sign.git
 ```
 
-2、修改`user.json`
+2、修改`user.json`（将`user_sample.json`拷贝并重命名）
 
 | 属性     | 值                                    |
 | -------- | ------------------------------------- |
@@ -77,3 +77,6 @@ $git  clone https://github.com/yunke120/pfvpn-sign.git
 $python main.py
 ```
 
+5、运行结果截图
+
+<img src="figures/image-20221027100331016.png" alt="image-20221027100331016" style="zoom:50%;" />
