@@ -22,21 +22,21 @@ PFvpn提供了全球网络中继服务，免费版需要每日签到以获取会
 
 ### 签到脚本使用方式
 
-#### 环境
-
-> Window, Python>3.6
-
-！注意：chromedriver.exe的版本需与自己chrome浏览器版本一致，下载地址：[点击](https://registry.npmmirror.com/binary.html?path=chromedriver/)
-
 #### 步骤
 
 1、克隆仓库
 
 ```
-$git  clone https://github.com/yunke120/pfvpn-sign.git
+$git  clone https://github.com/yunke120/pfvpn-sign.git -b re
 ```
 
-2、修改`user.json`（将`user_sample.json`拷贝并重命名）
+2、安装依赖
+
+```
+$pip install -r requirements.txt
+```
+
+3、修改`user.json`（将`user_sample.json`拷贝并重命名）
 
 | 属性     | 值                                    |
 | -------- | ------------------------------------- |
@@ -61,15 +61,7 @@ $git  clone https://github.com/yunke120/pfvpn-sign.git
 ]
 ```
 
-3、修改`config.json`
 
-`chrome_path`对应的是你的电脑中chrome浏览器的路径，如
-
-```json
-{
-    "chrome_path": "C:/Program Files/Google/Chrome/Application/chrome.exe"
-}
-```
 
 4、运行
 
@@ -79,4 +71,23 @@ $python main.py
 
 5、运行结果截图
 
-<img src="figures/image-20221027100331016.png" alt="image-20221027100331016" style="zoom:50%;" />
+<img src="figures/image-20221028120722114.png" alt="image-20221028120722114" style="zoom:50%;" />
+
+## 部署
+
+### 服务器
+
+打开文件`crontab`
+
+```
+$vi /etc/crontab
+```
+
+添加以下代码，需确认又python3环境，`main.py`改为绝对路径
+
+```
+0 0 3 * * *  python3 main.py
+```
+
+## 宝塔
+
