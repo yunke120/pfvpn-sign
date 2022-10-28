@@ -8,8 +8,6 @@ on:
     branches: [ "re" ]
   pull_request:
     branches: [ "re" ]
-  schedule:
-    - cron: 0 3 * * *
 
 permissions:
   contents: read
