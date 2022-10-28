@@ -89,5 +89,6 @@ $vi /etc/crontab
 0 0 3 * * *  python3 main.py
 ```
 
-## 宝塔
+## GitHub Actions
+
 

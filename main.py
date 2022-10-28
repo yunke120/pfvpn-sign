@@ -1,4 +1,5 @@
-#coding=utf-8
+#! usr/bin/python
+# -*- coding: utf-8 -*-
 
 import requests
 from bs4 import BeautifulSoup
@@ -6,6 +7,7 @@ import json
 # import schedule
 from notify import Notify
 import time
+import os
 
 session = requests.session()
 server = Notify()
@@ -13,6 +15,27 @@ server = Notify()
 def read_json(json_file):
     obj = json.load(open(json_file, 'r', encoding='utf-8'))
     return obj
+
+def get_user_info(json_file):
+    users = []
+    try:
+        USERS = os.environ['USERS']
+        PWD = os.environ['PWD']
+        SCKEY = os.environ['SCKEY']
+        user_list = USERS.split('&')
+        pwd_list = PWD.split('&')
+        sckey_list = SCKEY.split('&')
+        # assert len(user_list) == len(pwd_list)
+        for u, p, k in zip(user_list,pwd_list,sckey_list):
+            user = dict()
+            user['username'] = u
+            user['password'] = p
+            user['sckey'] = k
+            users.append(user)
+    except KeyError:
+        users = read_json(json_file)
+
+    return users
 
 
 def login(data):
@@ -57,7 +80,7 @@ def get_dead_time(soup):
     return dead_time
 
 def job():
-    users = read_json('user.json')
+    users = get_user_info('user_sample.json') # list
     for user in users:
         data = {
             'email':user['username'],
@@ -89,7 +112,7 @@ def job():
         msg += dead_time
         # 发送通知
         server.server(user['sckey'], user['username'], msg)
-        time.sleep(10*60) # 账号之间间隔一段时间
+        time.sleep(10*60) # 账号之间间隔一段时�?
 
 
 if __name__ == '__main__':
