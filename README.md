@@ -2,6 +2,10 @@
 
 [PFvpn](https://purefast.net/)每日签到脚本
 
+>分支`main`为`selenium`开发
+>
+>分支`re`为`requests`开发（推荐）
+
 ## 介绍
 
 PFvpn提供了全球网络中继服务，免费版需要每日签到以获取会员天数和流量，国内网速达15Mbps
