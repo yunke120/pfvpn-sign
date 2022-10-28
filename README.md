@@ -83,11 +83,13 @@ $python main.py
 $vi /etc/crontab
 ```
 
-添加以下代码，需确认又python3环境，`main.py`改为绝对路径
+添加以下代码，需确认有python3环境，`main.py`改为绝对路径
 
 ```
 0 0 3 * * *  python3 main.py
 ```
+
+也可以通过宝塔面板安装Python项目管理器进行部署。
 
 ## GitHub Actions
 
@@ -103,4 +105,9 @@ $vi /etc/crontab
 
    多用户示例：`example1@163.com&wxample2@qq.com`
 
-3. 
+3. 点击进入`Actions`查看工作流是否正常运行
+
+## 参考
+
+1. [WinXray](https://github.com/TheMRLL/WinXray)
+2. [PFvpn](https://purefast.net/)

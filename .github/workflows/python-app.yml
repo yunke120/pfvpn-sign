@@ -4,11 +4,12 @@
 name: PFvpn Sign
 
 on:
-  push:
-    branches: [ "re" ]
-  pull_request:
-    branches: [ "re" ]
-
+  # push:
+  #   branches: [ "re" ]
+  # pull_request:
+  #   branches: [ "re" ]
+  schedule:
+    - cron: 0 3 * * *
 permissions:
   contents: read
 
