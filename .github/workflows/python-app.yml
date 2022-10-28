@@ -31,3 +31,7 @@ jobs:
     - name: Sign
       run: |
         python main.py
+      env:
+        USERS: ${{ secrets.USERS }}
+        PWD: ${{ secrets.PWD }}
+        SCKEY: ${{ secrets.SCKEY }}
