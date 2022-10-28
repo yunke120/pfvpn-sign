@@ -26,6 +26,7 @@ def get_user_info(json_file):
         pwd_list = PWD.split('&')
         sckey_list = SCKEY.split('&')
         # assert len(user_list) == len(pwd_list)
+        print("os")
         for u, p, k in zip(user_list,pwd_list,sckey_list):
             user = dict()
             user['username'] = u
@@ -34,6 +35,7 @@ def get_user_info(json_file):
             users.append(user)
     except KeyError:
         users = read_json(json_file)
+        print("json")
 
     return users
 
@@ -80,8 +82,9 @@ def get_dead_time(soup):
     return dead_time
 
 def job():
-    users = get_user_info('user_sample.json') # list
+    users = get_user_info('user.json') # list
     for user in users:
+        print(user['username'], user['password'])
         data = {
             'email':user['username'],
             'passwd':user['password'],
@@ -97,7 +100,10 @@ def job():
             continue
         # 解析
         soup = BeautifulSoup(html, 'lxml')
-        sign_state = soup.select('#checkin-div > a > div > h1')[0].get_text()
+        try:
+            sign_state = soup.select('#checkin-div > a > div > h1')[0].get_text()
+        except IndexError:
+            continue
         # 签到
         msg = ''
         if sign_state == "每日签到":
@@ -112,7 +118,7 @@ def job():
         msg += dead_time
         # 发送通知
         server.server(user['sckey'], user['username'], msg)
-        time.sleep(10*60) # 账号之间间隔一段时�?
+        time.sleep(10*60) # 账号之间间隔一段时�?
 
 
 if __name__ == '__main__':
