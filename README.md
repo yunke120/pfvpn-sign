@@ -91,4 +91,16 @@ $vi /etc/crontab
 
 ## GitHub Actions
 
+1. fork项目到自己的账户中
 
+2. 在`Setting->Secrets->Actions->New respository secret`中添加自己的账户
+
+   | 序号 | 名称  | 值                            |
+   | ---- | ----- | ----------------------------- |
+   | 1    | USERS | 邮箱名，多用户通过&隔开       |
+   | 2    | PWD   | 密码，多用户通过&隔开         |
+   | 3    | SCKEY | Server酱密钥，多用户通过&隔开 |
+
+   多用户示例：`example1@163.com&wxample2@qq.com`
+
+3. 
