@@ -32,7 +32,7 @@ jobs:
     - name: Sign
       env:
         USERS: ${{ secrets.USERS }}
-        PWD: ${{ secrets.PWD }}
+        PASSWRDD: ${{ secrets.PASSWRDD }}
         SCKEY: ${{ secrets.SCKEY }}
       run: |
         python main.py

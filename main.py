@@ -12,8 +12,6 @@ import os
 session = requests.session()
 server = Notify()
 
-print(os.environ)
-
 def read_json(json_file):
     obj = json.load(open(json_file, 'r', encoding='utf-8'))
     return obj
@@ -22,13 +20,13 @@ def get_user_info(json_file):
     users = []
     try:
         USERS = os.environ['USERS']
-        PWD = os.environ['PWD']
+        PASSWRDD = os.environ['PASSWRDD']
         SCKEY = os.environ['SCKEY']
         print(USERS)
-        print(PWD)
+        print(PASSWRDD)
         print(SCKEY)
         user_list = USERS.split('&')
-        pwd_list = PWD.split('&')
+        pwd_list = PASSWRDD.split('&')
         sckey_list = SCKEY.split('&')
         # assert len(user_list) == len(pwd_list)
         print("os")
