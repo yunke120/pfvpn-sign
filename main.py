@@ -38,10 +38,11 @@ def get_user_info(json_file):
             user['password'] = p
             user['sckey'] = k
             users.append(user)
+        print(users)
     except KeyError:
         users = read_json(json_file)
         print("json")
-    print(users)
+    
     return users
 
 
