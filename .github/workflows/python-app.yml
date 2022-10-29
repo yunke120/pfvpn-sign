@@ -30,9 +30,9 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Sign
-      run: |
-        python main.py
       env:
         USERS: ${{ secrets.USERS }}
         PWD: ${{ secrets.PWD }}
         SCKEY: ${{ secrets.SCKEY }}
+      run: |
+        python main.py

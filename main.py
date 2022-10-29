@@ -12,6 +12,8 @@ import os
 session = requests.session()
 server = Notify()
 
+print(os.environ)
+
 def read_json(json_file):
     obj = json.load(open(json_file, 'r', encoding='utf-8'))
     return obj
