@@ -4,8 +4,8 @@
 name: PFvpn Sign
 
 on:
-  # push:
-  #   branches: [ "re" ]
+  push:
+    branches: [ "re" ]
   # pull_request:
   #   branches: [ "re" ]
   schedule:

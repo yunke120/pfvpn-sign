@@ -22,6 +22,9 @@ def get_user_info(json_file):
         USERS = os.environ['USERS']
         PWD = os.environ['PWD']
         SCKEY = os.environ['SCKEY']
+        print(USERS)
+        print(PWD)
+        print(SCKEY)
         user_list = USERS.split('&')
         pwd_list = PWD.split('&')
         sckey_list = SCKEY.split('&')
@@ -36,7 +39,7 @@ def get_user_info(json_file):
     except KeyError:
         users = read_json(json_file)
         print("json")
-
+    print(users)
     return users
 
 
