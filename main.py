@@ -13,6 +13,10 @@ session = requests.session()
 server = Notify()
 
 print(os.environ)
+print(os.environ['TEST'])
+print(os.environ['USERS'])
+print(os.environ['PASSWRDD'])
+print(os.environ['SCKEY'])
 
 def read_json(json_file):
     obj = json.load(open(json_file, 'r', encoding='utf-8'))
@@ -24,15 +28,14 @@ def get_user_info(json_file):
         USERS = os.environ['USERS']
         PASSWRDD = os.environ['PASSWRDD']
         SCKEY = os.environ['SCKEY']
-        print(USERS)
-        print(PASSWRDD)
-        print(SCKEY)
         user_list = USERS.split('&')
         pwd_list = PASSWRDD.split('&')
         sckey_list = SCKEY.split('&')
         # assert len(user_list) == len(pwd_list)
         print("os")
+        
         for u, p, k in zip(user_list,pwd_list,sckey_list):
+            print(u,p,k)
             user = dict()
             user['username'] = u
             user['password'] = p
@@ -128,5 +131,6 @@ def job():
 
 
 if __name__ == '__main__':
-    job()
+    # job()
+    pass
 

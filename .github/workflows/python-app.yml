@@ -34,5 +34,6 @@ jobs:
         USERS: ${{ secrets.USERS }}
         PASSWRDD: ${{ secrets.PASSWRDD }}
         SCKEY: ${{ secrets.SCKEY }}
+        TEST: ${{ secrets.TEST }}
       run: |
         python main.py
