@@ -31,18 +31,6 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Sign
       run: |
-        if [ "$USERS" == "fj_1860352816@163.com&1204355467@qq.com" ]
-        then
-          echo "Got USERS"
-        fi
-        if [ "$PASSWORD" == "1204355467&1234567890" ]
-        then
-          echo "Got PASSWORD"
-        fi
-        if [ "$SCKEY" == "SCT5575TQTnNQ5vzVzQBuOQ3YtXXlg4D&SCT5575TQTnNQ5vzVzQBuOQ3YtXXlg4D" ]
-        then
-          echo "Got SCKEY"
-        fi
         python main.py
       env:
         USERS: ${{ secrets.USERS }}
