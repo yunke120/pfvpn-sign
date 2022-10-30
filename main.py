@@ -21,7 +21,7 @@ def get_user_info(json_file):
     users = []
     try:
         USERS = os.environ['USERS']
-        PASSWRDD = os.environ['PASSWRDD']
+        PASSWRDD = os.environ['PASSWORD']
         SCKEY = os.environ['SCKEY']
         user_list = USERS.split('&')
         pwd_list = PASSWRDD.split('&')
