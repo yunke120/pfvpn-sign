@@ -31,21 +31,20 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Sign
       run: |
-        if [ "$secrets.USERS" == "users" ]
+        if [ "$USERS" == "fj_1860352816@163.com&1204355467@qq.com" ]
         then
           echo "Got users"
         fi
-        if [ "$secrets.PASSWRDD" == "password" ]
+        if [ "$PASSWRDD" == "1204355467&1234567890" ]
         then
           echo "Got PASSWRDD"
         fi
-        if [ "$secrets.TEST" == "test" ]
+        if [ "$SCKEY" == "SCT5575TQTnNQ5vzVzQBuOQ3YtXXlg4D&SCT5575TQTnNQ5vzVzQBuOQ3YtXXlg4D" ]
         then
-          echo "Got PASSWRDD"
+          echo "Got SCKEY"
         fi
         python main.py
       env:
         USERS: ${{ secrets.USERS }}
         PASSWRDD: ${{ secrets.PASSWRDD }}
         SCKEY: ${{ secrets.SCKEY }}
-        TEST: ${{ secrets.TEST }}

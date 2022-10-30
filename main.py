@@ -127,13 +127,11 @@ def job():
 
 if __name__ == '__main__':
     # job()
-    a = (os.environ['TEST'])
     b = (os.environ['USERS'])
     c = (os.environ['PASSWRDD'])
     d = (os.environ['SCKEY'])
 
-    print(a)
-    print(b)
-    print(c)
-    print(d)
+    print(str(b))
+    print(str(c))
+    print(str(d))
 
