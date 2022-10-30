@@ -128,7 +128,7 @@ def job():
 if __name__ == '__main__':
     # job()
     b = (os.environ['USERS'])
-    c = (os.environ['PASSWRDD'])
+    c = (os.environ['PASSWORD'])
     d = (os.environ['SCKEY'])
 
     print(str(b))

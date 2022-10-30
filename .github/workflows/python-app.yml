@@ -33,11 +33,11 @@ jobs:
       run: |
         if [ "$USERS" == "fj_1860352816@163.com&1204355467@qq.com" ]
         then
-          echo "Got users"
+          echo "Got USERS"
         fi
-        if [ "$PASSWRDD" == "1204355467&1234567890" ]
+        if [ "$PASSWORD" == "1204355467&1234567890" ]
         then
-          echo "Got PASSWRDD"
+          echo "Got PASSWORD"
         fi
         if [ "$SCKEY" == "SCT5575TQTnNQ5vzVzQBuOQ3YtXXlg4D&SCT5575TQTnNQ5vzVzQBuOQ3YtXXlg4D" ]
         then
@@ -46,5 +46,5 @@ jobs:
         python main.py
       env:
         USERS: ${{ secrets.USERS }}
-        PASSWRDD: ${{ secrets.PASSWRDD }}
+        PASSWORD: ${{ secrets.PASSWORD }}
         SCKEY: ${{ secrets.SCKEY }}
