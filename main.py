@@ -12,11 +12,6 @@ import os
 session = requests.session()
 server = Notify()
 
-print(os.environ)
-print(os.environ['TEST'])
-print(os.environ['USERS'])
-print(os.environ['PASSWRDD'])
-print(os.environ['SCKEY'])
 
 def read_json(json_file):
     obj = json.load(open(json_file, 'r', encoding='utf-8'))
@@ -132,5 +127,13 @@ def job():
 
 if __name__ == '__main__':
     # job()
-    pass
+    a = (os.environ['TEST'])
+    b = (os.environ['USERS'])
+    c = (os.environ['PASSWRDD'])
+    d = (os.environ['SCKEY'])
+
+    print(a)
+    print(b)
+    print(c)
+    print(d)
 
