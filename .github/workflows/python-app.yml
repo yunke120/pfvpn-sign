@@ -30,18 +30,22 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Sign
+      run: |
+        if [ "$secrets.USERS" == "users" ]
+        then
+          echo "Got users"
+        fi
+        if [ "$secrets.PASSWRDD" == "password" ]
+        then
+          echo "Got PASSWRDD"
+        fi
+        if [ "$secrets.TEST" == "test" ]
+        then
+          echo "Got PASSWRDD"
+        fi
+        python main.py
       env:
         USERS: ${{ secrets.USERS }}
         PASSWRDD: ${{ secrets.PASSWRDD }}
         SCKEY: ${{ secrets.SCKEY }}
         TEST: ${{ secrets.TEST }}
-      run: |
-        if [ "$secrets.USERS" == "fj_18860352816@163.com&1204355467@qq.com" ]
-        then
-          echo "Got users"
-        fi
-        if [ "$secrets.PASSWRDD" == "1204355467&1234567890" ]
-        then
-          echo "Got PASSWRDD"
-        fi
-        python main.py
