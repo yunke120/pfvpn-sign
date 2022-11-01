@@ -122,7 +122,7 @@ def job():
         msg += dead_time
         # 发送通知
         server.server(user['sckey'], user['username'], msg)
-        time.sleep(10*60) # 账号之间间隔一段时�?
+        time.sleep(10) # 账号之间间隔一段时间
 
 
 if __name__ == '__main__':
