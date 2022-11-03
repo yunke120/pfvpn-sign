@@ -52,8 +52,13 @@ def login(data):
         'Origin': 'https://purefast.net',
         'Referer': 'https://purefast.net/auth/login'
     }
-    res = session.post(url=url, data=data, headers=headers)
-    return res.status_code
+    try:
+        time.sleep(2) # 服务器在请求时会编译一些热点或服务数据，请求过快会导致连接失败 error 104
+        res = session.post(url=url, data=data, headers=headers)
+        return res.status_code
+    except ConnectionError:
+        return -1
+    
 
 def get_html():
     url = 'https://purefast.net/user'
@@ -62,6 +67,7 @@ def get_html():
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
         'Referer': 'https://purefast.net/auth/login'
     }
+    time.sleep(2)
     res = session.get(url=url, headers=headers)
     return res.status_code, res.text
 
@@ -73,6 +79,7 @@ def sign():
         'Origin': 'https://purefast.net',
         'Referer': 'https://purefast.net/user',
     }
+    time.sleep(2)
     res = session.post(url=url, headers=headers)
     return res.status_code
 
