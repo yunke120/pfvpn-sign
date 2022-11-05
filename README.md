@@ -105,11 +105,11 @@ $vi /etc/crontab
 
    多用户示例：`example1@163.com&wxample2@qq.com`
 
-3. 在`Code->.github/workflows`中打开`python-app.yml`文件，任意加一行注释，并重新提交触发Actions即可
+3. 点击进入`Actions`，启用此仓库的工作流
 
-4. 点击进入`Actions`查看工作流是否正常运行
+4. 选择`PFvpn Sign`，点击`Enable workflow`启用
 
-如果发现github actions并未触发运行，可将`python-app.yml`内容复制，并新建`Actions->New workflow->main.yml`，将内容复制进去重新提交即可
+5. 点击`Run workflow->Run workflow`立刻运行，稍等几秒查看工作流是否开始正常运行
 
 ## 参考
 
