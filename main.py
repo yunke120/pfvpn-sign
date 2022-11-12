@@ -23,14 +23,14 @@ def get_user_info(json_file):
     try:
         USERS = os.environ['USERS']
         PASSWRDD = os.environ['PASSWORD']
-        SCKEY = os.environ['KEY']
+        KEY = os.environ['KEY']
         user_list = USERS.split('&')
         pwd_list = PASSWRDD.split('&')
-        key_list = SCKEY.split('&')
+        key_list = KEY.split('&')
         # assert len(user_list) == len(pwd_list)
         
         for u, p, k in zip(user_list,pwd_list,key_list):
-            print(u,p,k)
+            print(u)
             user = dict()
             user['username'] = u
             user['password'] = p
@@ -166,4 +166,3 @@ def job():
 
 if __name__ == '__main__':
     job()
-
