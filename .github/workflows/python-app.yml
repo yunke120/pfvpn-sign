@@ -40,4 +40,4 @@ jobs:
       env:
         USERS: ${{ secrets.USERS }}
         PASSWORD: ${{ secrets.PASSWORD }}
-        SCKEY: ${{ secrets.SCKEY }}
+        KEY: ${{ secrets.KEY }}
