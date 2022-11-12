@@ -8,9 +8,10 @@ import json
 from notify import Notify
 import time
 import os
+import datetime
 
 session = requests.session()
-server = Notify()
+notify = Notify()
 
 
 def read_json(json_file):
@@ -22,24 +23,21 @@ def get_user_info(json_file):
     try:
         USERS = os.environ['USERS']
         PASSWRDD = os.environ['PASSWORD']
-        SCKEY = os.environ['SCKEY']
+        SCKEY = os.environ['KEY']
         user_list = USERS.split('&')
         pwd_list = PASSWRDD.split('&')
-        sckey_list = SCKEY.split('&')
+        key_list = SCKEY.split('&')
         # assert len(user_list) == len(pwd_list)
-        print("os")
         
-        for u, p, k in zip(user_list,pwd_list,sckey_list):
+        for u, p, k in zip(user_list,pwd_list,key_list):
             print(u,p,k)
             user = dict()
             user['username'] = u
             user['password'] = p
-            user['sckey'] = k
+            user['key'] = k
             users.append(user)
-        print(users)
     except KeyError:
         users = read_json(json_file)
-        print("json")
     
     return users
 
@@ -92,6 +90,39 @@ def get_dead_time(soup):
     dead_time = dead_time.replace('\n','').replace(' ','')
     return dead_time
 
+def get_link_id(soup):
+    links = soup.find_all('a', {"href":"##"})
+    link = ''
+    for l in links:
+        link = l.attrs.get('data-clipboard-text')
+        if link:
+            break
+    return link[41:57]
+
+def get_addr(id):
+    return f'https://whoisyourdady.gfw-wdnmd.com/link/pRkl1txcHqKLc5Uv?clash=1'
+
+def diy_content(username, msg, id):
+    current_time = datetime.datetime.now().strftime('%Y.%m.%d %H:%M:%S')
+    content = {
+        "------\n"
+        "### PFvpn签到信息\n"
+        "- 用户账号：" + str(username) + "\n"
+        "- 签到状态：" + str(msg) + "\n"
+        "- 签到时间：" + current_time + "\n"
+        "\n"
+        "### 订阅地址\n"
+        "> 若网速不正常，请更新订阅地址\n"
+        "\n"
+        "- clash：" + f'https://whoisyourdady.gfw-wdnmd.com/link/{id}?clash=1' + "\n"
+        "- kitsunebi：" + f'https://whoisyourdady.gfw-wdnmd.com/link/{id}?list=kitsunebi' + "\n"
+        "- quantumultx：" + f'https://whoisyourdady.gfw-wdnmd.com/link/{id}?list=quantumultx' + "\n"
+        "- shadowrocket：" + f'https://whoisyourdady.gfw-wdnmd.com/link/{id}?list=shadowrocket' + "\n"
+        "- trojan：" + f'https://whoisyourdady.gfw-wdnmd.com/link/{id}?sub=3'
+    }
+
+    return content
+
 def job():
     users = get_user_info('user.json') # list
     for user in users:
@@ -125,10 +156,11 @@ def job():
         else:
             msg += sign_state
         dead_time = get_dead_time(soup)
-        msg += "\n"
+        id = get_link_id(soup)
         msg += dead_time
+        content = diy_content(user['username'], msg, id)
         # 发送通知
-        server.server(user['sckey'], user['username'], msg)
+        notify.send(user['key'],  content)
         time.sleep(10) # 账号之间间隔一段时间
 
 

@@ -38,11 +38,11 @@ $pip install -r requirements.txt
 
 3、修改`user.json`（将`user_sample.json`拷贝并重命名）
 
-| 属性     | 值                                    |
-| -------- | ------------------------------------- |
-| username | 用户邮箱                              |
-| password | 用户密码                              |
-| sckey    | [Server酱](https://sct.ftqq.com/)密钥 |
+| 属性     | 值                                                           |
+| -------- | ------------------------------------------------------------ |
+| username | 用户邮箱                                                     |
+| password | 用户密码                                                     |
+| key      | [Server酱](https://sct.ftqq.com/)密钥或[息知](https://xz.qqoq.net/#/index)密钥 |
 
 支持多用户，示例
 
@@ -51,12 +51,12 @@ $pip install -r requirements.txt
     {
         "username":"example1@163.com",
         "password":"12345678",
-        "sckey":"SCT*****"
+        "key":"SCT*****"
     },
     {
         "username":"example2@qq.com",
         "password":"1234567890",
-        "sckey":"SCT*****"
+        "key":"XZ*****"
     }
 ]
 ```
@@ -97,11 +97,11 @@ $vi /etc/crontab
 
 2. 在`Setting->Secrets->Actions->New respository secret`中添加自己的账户
 
-   | 序号 | 名称  | 值                            |
-   | ---- | ----- | ----------------------------- |
-   | 1    | USERS | 邮箱名，多用户通过&隔开       |
-   | 2    | PWD   | 密码，多用户通过&隔开         |
-   | 3    | SCKEY | Server酱密钥，多用户通过&隔开 |
+   | 序号 | 名称  | 值                                                           |
+   | ---- | ----- | ------------------------------------------------------------ |
+   | 1    | USERS | 邮箱名，多用户通过&隔开                                      |
+   | 2    | PWD   | 密码，多用户通过&隔开                                        |
+   | 3    | KEY   | [Server酱](https://sct.ftqq.com/)密钥或[息知](https://xz.qqoq.net/#/index)密钥，多用户通过&隔开 |
 
    多用户示例：`example1@163.com&wxample2@qq.com`
 
@@ -115,3 +115,4 @@ $vi /etc/crontab
 
 1. [WinXray](https://github.com/TheMRLL/WinXray)
 2. [PFvpn](https://purefast.net/)
+
