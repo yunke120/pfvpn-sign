@@ -10,6 +10,7 @@ import time
 import os
 import datetime
 
+
 session = requests.session()
 notify = Notify()
 
@@ -155,8 +156,8 @@ def job():
         else:
             msg += sign_state
         dead_time = get_dead_time(soup)
-        id = get_link_id(soup)
         msg += dead_time
+        id = get_link_id(soup)
         content = diy_content(user['username'], msg, id)
         # 发送通知
         notify.send(user['key'],  content)
@@ -164,8 +165,4 @@ def job():
 
 
 if __name__ == '__main__':
-    users = get_user_info('user.json') # list
-    for user in users:
-        print(user['username'], user['key'])
-        content = diy_content(user['username'], "OK", "UHGSYGDYUE")
-        notify.send(user['key'],  content)
+    job()
