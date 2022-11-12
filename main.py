@@ -126,7 +126,6 @@ def diy_content(username, msg, id):
 def job():
     users = get_user_info('user.json') # list
     for user in users:
-        print(user['username'], user['password'])
         data = {
             'email':user['username'],
             'passwd':user['password'],
@@ -165,4 +164,8 @@ def job():
 
 
 if __name__ == '__main__':
-    job()
+    users = get_user_info('user.json') # list
+    for user in users:
+        print(user['username'], user['key'])
+        content = diy_content(user['username'], "OK", "UHGSYGDYUE")
+        notify.send(user['key'],  content)
