@@ -4,12 +4,12 @@
 name: PFvpn Sign
 
 on:
-  push:
-    branches: [ "re" ]
+  # push:
+  #   branches: [ "re" ]
   # pull_request:
   #   branches: [ "re" ]
   schedule:
-    - cron: '30 17 * * *'
+    - cron: '0 19 * * *'
   workflow_dispatch:
 permissions:
   contents: read

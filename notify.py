@@ -2,27 +2,34 @@
 import requests
 import datetime
 
-
 class Notify:
     def __init__(self) -> None:
-        self.content = {}
+
         pass
 
-    def diy_content(self, username, msg):
-        current_time = datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S')
-        self.content = {
-            "------\n"
-            "### VPN签到信息\n"
-            "- 用户账号：" + str(username) + "\n"
-            "- 签到状态：" + str(msg) + "\n"
-            "- 签到时间：" + current_time
-        }
-
-    def server(self, sckey, username, msg):
+# server酱
+    def server(self, sckey, msg):
         self.url = 'https://sctapi.ftqq.com/' + sckey + '.send'
-        self.diy_content(username, msg)
         data = {
             "text":"PFvpn每日签到",
-            "desp":self.content
+            "desp":msg
         }
         requests.post(self.url, data=data, headers={'Content-type': 'application/x-www-form-urlencoded'})
+
+# 息知
+    def xizhi(self, key, msg):
+        self.url = f'https://xizhi.qqoq.net/{key}.send'
+        data = {
+            "title":"PFvpn每日签到",
+            "content":msg
+        }
+        requests.post(self.url, data=data, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'})
+
+# 发送接口
+    def send(self, key, msg):
+        if key.startswith('SCT'):
+            self.server(key, msg)
+        elif key.startswith('XZ'):
+            self.xizhi(key, msg)
+        else:
+            pass
