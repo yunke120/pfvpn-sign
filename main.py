@@ -155,6 +155,7 @@ def job():
             msg += "签到成功"
         else:
             msg += sign_state
+        
         dead_time = get_dead_time(soup)
         msg += dead_time
         id = get_link_id(soup)
