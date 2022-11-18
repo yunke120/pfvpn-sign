@@ -2,6 +2,12 @@
 
 [PFvpn](https://purefast.net/)每日签到脚本，2022/11/17之后已不可用，等待更新...
 
+**请使用手动签到，自动签到会被封**。
+
+#### 其他订阅地址
+
+> https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub [有效]
+
 ## TopNews
 
 2022/11/15：不支持多账户签到，请使用单一账户
